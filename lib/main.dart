@@ -2,6 +2,7 @@ import 'package:aladia_mobile_app/features/auth/Bloc/theme_bloc.dart';
 import 'package:aladia_mobile_app/features/auth/Bloc/theme_state.dart';
 import 'package:aladia_mobile_app/features/auth/screens/loginScreen.dart';
 import 'package:aladia_mobile_app/features/home/screens/home_screen.dart';
+import 'package:aladia_mobile_app/routes/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'features/splash/Bloc/splash_bloc.dart';
@@ -13,6 +14,8 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -22,15 +25,11 @@ class MyApp extends StatelessWidget {
       ],
       child: BlocBuilder<ThemeBloc, ThemeState>(
         builder: (context, themeState) {
-          return MaterialApp(
+          return MaterialApp.router(
             debugShowCheckedModeBanner: false,
-            theme: themeState.themeData, // Apply the theme from ThemeBloc
-            routes: {
-              AppRoutes.splash: (context) => SplashScreen(),
-              AppRoutes.login: (context) => Loginscreen(),
-              //AppRoutes.home: (context) => HomeScreen(),
-            },
-            initialRoute: AppRoutes.login,
+            theme: themeState.themeData,
+            routerConfig:
+                AppRouter.router, // Use the router defined in app_router.dart
           );
         },
       ),
