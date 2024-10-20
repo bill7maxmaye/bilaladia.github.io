@@ -18,7 +18,7 @@ class HeaderCard extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(10.0), // Padding inside the container
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12), // Rounded corners
+        borderRadius: BorderRadius.circular(13), // Rounded corners
         gradient: LinearGradient(
           colors: isDarkTheme
               ? [
@@ -36,12 +36,12 @@ class HeaderCard extends StatelessWidget {
       child: Stack(
         children: [
           const Row(
-            crossAxisAlignment: CrossAxisAlignment.center, 
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               AppLogo(),
               SizedBox(width: 16),
               Expanded(
-                child: WelcomeText(), 
+                child: WelcomeText(),
               ),
             ],
           ),
