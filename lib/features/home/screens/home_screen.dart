@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:aladia_mobile_app/features/auth/models/user_model.dart';
 
 class HomeScreen extends StatelessWidget {
-  final UserModel user;
-
-  const HomeScreen({super.key, required this.user});
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +14,8 @@ class HomeScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
-        centerTitle: true, // Center the app bar title
-        backgroundColor:
-            Colors.teal, // Optional: set a custom color for the app bar
+        centerTitle: true,
+        backgroundColor: Colors.teal,
       ),
       body: Center(
         child: Card(
@@ -28,27 +24,27 @@ class HomeScreen extends StatelessWidget {
             borderRadius: BorderRadius.circular(16),
           ),
           margin: const EdgeInsets.symmetric(horizontal: 16),
-          child: Padding(
-            padding: const EdgeInsets.all(24.0),
+          child: const Padding(
+            padding: EdgeInsets.all(24.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text(
-                  'Access Token:',
+                Text(
+                  'HELLO USER,',
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: Colors.grey,
+                    color: Colors.white,
                   ),
                 ),
-                const SizedBox(height: 16), // Add some spacing
+                SizedBox(height: 16), // Add some spacing
                 Text(
-                  user.accessToken ?? 'No Access Token',
+                  "WELCOME TO ALADIA",
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
-                    color: Colors.black87,
+                    color: Colors.white,
                   ),
                 ),
               ],

@@ -32,8 +32,8 @@ class Loginscreen extends StatelessWidget {
 
       // If email exists, show a success message and redirect to the home page
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Email found. Redirecting to Home.'),
+        const SnackBar(
+          content: Text('Email Found. Redirecting to Home.'),
           backgroundColor: Colors.green,
         ),
       );

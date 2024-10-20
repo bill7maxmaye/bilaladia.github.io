@@ -20,9 +20,8 @@ class AppRouter {
       GoRoute(
         path: AppRoutes.home,
         builder: (context, state) {
-          final UserModel user =
-              state.extra as UserModel; // Retrieve the user data
-          return HomeScreen(user: user); // Pass the user to HomeScreen
+          // Retrieve the user data
+          return HomeScreen(); // Pass the user to HomeScreen
         },
       ),
     ],
