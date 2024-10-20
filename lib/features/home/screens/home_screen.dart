@@ -41,7 +41,7 @@ class HomeScreen extends StatelessWidget {
                     color: Colors.grey,
                   ),
                 ),
-                const SizedBox(height: 18), // Add some spacing
+                const SizedBox(height: 16), // Add some spacing
                 Text(
                   user.accessToken ?? 'No Access Token',
                   textAlign: TextAlign.center,
