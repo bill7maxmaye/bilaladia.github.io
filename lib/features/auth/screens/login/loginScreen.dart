@@ -1,8 +1,4 @@
-import 'package:aladia_mobile_app/features/auth/bloc/theme_bloc.dart';
-import 'package:aladia_mobile_app/features/auth/bloc/theme_event.dart';
 import 'package:aladia_mobile_app/features/auth/services/auth_service.dart';
-import 'package:aladia_mobile_app/features/auth/models/user_model.dart';
-import 'package:aladia_mobile_app/features/auth/widgets/appLogo.dart';
 import 'package:aladia_mobile_app/features/auth/widgets/divider.dart';
 import 'package:aladia_mobile_app/features/auth/widgets/emailInputField.dart';
 import 'package:aladia_mobile_app/features/auth/widgets/headerCard.dart';
@@ -11,7 +7,6 @@ import 'package:aladia_mobile_app/features/auth/widgets/socialLoginButton.dart';
 import 'package:aladia_mobile_app/features/auth/widgets/termAndConditionText.dart';
 import 'package:aladia_mobile_app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class Loginscreen extends StatelessWidget {

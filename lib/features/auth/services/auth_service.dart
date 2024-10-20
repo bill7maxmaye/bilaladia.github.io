@@ -1,8 +1,7 @@
 import 'dart:convert';
-import 'dart:io'; // Import for handling specific errors like SocketException
+import 'dart:io';
 import 'package:http/http.dart' as http;
 import '../models/user_model.dart';
-//import '../models/login_request.dart'; // Assuming LoginRequest model
 
 class AuthService {
   final String baseUrl = 'https://dev-api.aladia.io/v2';
@@ -72,8 +71,6 @@ class AuthService {
     }
   }
 
-  //signup the user
-
   // Method to sign up a user
   Future<bool> signup({
     required String firstName,
@@ -82,7 +79,7 @@ class AuthService {
     required String password,
   }) async {
     const String signUpUrl = 'https://dev-api.aladia.io/v2/auth/register';
-    final bool signup = true;
+    const bool signup = true;
     // Prepare the request body
     final Map<String, String> requestBody = {
       'email': email,
@@ -92,6 +89,7 @@ class AuthService {
     };
 
     try {
+      // ignore: unused_local_variable
       final response = await http.post(
         Uri.parse(signUpUrl),
         headers: {'Content-Type': 'application/json'},
@@ -104,7 +102,6 @@ class AuthService {
 
       // Signup failed
     } catch (e) {
-      print('Error signing up: $e');
       return false; // Error occurred, return false
     }
   }
