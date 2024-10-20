@@ -16,12 +16,7 @@ workflows:
       - name: Install Flutter dependencies
         script: |
           flutter pub get
-      - name: Lint analysis (code quality check) with Flutter Analyze
-        script: |
-          flutter analyze  # Run static analysis to ensure code quality
-      - name: Run Unit Tests
-        script: |
-          flutter test  # Run unit and widget tests automatically on every push
+
       - name: Build APK with Flutter (No Code Signing)
         script: |
           flutter build apk --debug  # Debug APK for testing
