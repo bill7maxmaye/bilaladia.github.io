@@ -1,5 +1,5 @@
-import 'package:aladia_mobile_app/features/auth/Bloc/theme_bloc.dart';
-import 'package:aladia_mobile_app/features/auth/Bloc/theme_event.dart';
+import 'package:aladia_mobile_app/features/auth/bloc/theme_bloc.dart';
+import 'package:aladia_mobile_app/features/auth/bloc/theme_event.dart';
 import 'package:aladia_mobile_app/features/auth/widgets/appLogo.dart';
 import 'package:aladia_mobile_app/features/auth/widgets/welcomeText.dart';
 import 'package:flutter/material.dart';

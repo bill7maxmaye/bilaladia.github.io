@@ -1,6 +1,6 @@
-import 'package:aladia_mobile_app/features/auth/Bloc/theme_bloc.dart';
-import 'package:aladia_mobile_app/features/auth/Bloc/theme_state.dart';
-import 'package:aladia_mobile_app/features/auth/screens/loginScreen.dart';
+import 'package:aladia_mobile_app/features/auth/bloc/theme_bloc.dart';
+import 'package:aladia_mobile_app/features/auth/bloc/theme_state.dart';
+import 'package:aladia_mobile_app/features/auth/screens/login/loginScreen.dart';
 import 'package:aladia_mobile_app/features/home/screens/home_screen.dart';
 import 'package:aladia_mobile_app/routes/app_router.dart';
 import 'package:flutter/material.dart';

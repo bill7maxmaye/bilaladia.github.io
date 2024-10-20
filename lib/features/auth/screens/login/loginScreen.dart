@@ -1,5 +1,5 @@
-import 'package:aladia_mobile_app/features/auth/Bloc/theme_bloc.dart';
-import 'package:aladia_mobile_app/features/auth/Bloc/theme_event.dart';
+import 'package:aladia_mobile_app/features/auth/bloc/theme_bloc.dart';
+import 'package:aladia_mobile_app/features/auth/bloc/theme_event.dart';
 import 'package:aladia_mobile_app/features/auth/services/auth_service.dart';
 import 'package:aladia_mobile_app/features/auth/models/user_model.dart';
 import 'package:aladia_mobile_app/features/auth/widgets/appLogo.dart';
@@ -9,35 +9,54 @@ import 'package:aladia_mobile_app/features/auth/widgets/headerCard.dart';
 import 'package:aladia_mobile_app/features/auth/widgets/primaryButton.dart';
 import 'package:aladia_mobile_app/features/auth/widgets/socialLoginButton.dart';
 import 'package:aladia_mobile_app/features/auth/widgets/termAndConditionText.dart';
+import 'package:aladia_mobile_app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class Loginscreen extends StatelessWidget {
-  //final TextEditingController emailController = TextEditingController();
-
   Loginscreen({super.key});
 
   final TextEditingController _emailController = TextEditingController();
-  //final TextEditingController _passwordController = TextEditingController();
-  final String password = "Pass@123";
+
   final AuthService _authService = AuthService();
 
-  void _login() async {
-    final loginRequest = LoginRequest(
-      email: _emailController.text,
-      password:password
-      //password: _passwordController.text,
-    );
+  // Function to handle login by email
+  void _login(BuildContext context) async {
+    try {
+      // Check if the email exists using the AuthService
+      bool emailExists =
+          await _authService.checkIfEmailExists(_emailController.text);
 
-    UserModel? user = await _authService.login(loginRequest);
+      print("email exist $emailExists");
+      if (!emailExists) {
+        // Redirect to the signup page if the email doesn't exist
+        context.go(AppRoutes.signup);
+        return;
+      }
 
-    if (user != null) {
-      // Login successful
-      print('Login successful. Access token: ${user.accessToken}');
-      // Navigate to home screen or show success message
-    } else {
-      // Show error message
-      print('Login failed.');
+      // If email exists, show a success message and redirect to the home page
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Email found. Redirecting to Home.'),
+          backgroundColor: Colors.green,
+        ),
+      );
+
+      // Delay the redirection to home for a moment
+      Future.delayed(const Duration(seconds: 1), () {
+        context.go(AppRoutes.home);
+      });
+    } catch (e) {
+      print('Login error: $e');
+
+      // Show an error message in a snackbar
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('An error occurred: $e'),
+          backgroundColor: Colors.red,
+        ),
+      );
     }
   }
 
@@ -56,16 +75,12 @@ class Loginscreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-
-            
-                SizedBox(height: 20), 
+                SizedBox(height: 20),
                 HeaderCard(),
                 SizedBox(height: 30),
-
                 Center(
                   child: Text(
                     "Enter your email",
-                   
                     style: theme.textTheme.labelMedium,
                   ),
                 ),
@@ -79,8 +94,7 @@ class Loginscreen extends StatelessWidget {
                 PrimaryButton(
                   text: 'Enter',
                   onPressed: () {
-                    _login();
-                   
+                    _login(context);
                   },
                 ),
                 const SizedBox(height: 30),
@@ -90,24 +104,20 @@ class Loginscreen extends StatelessWidget {
                   text: 'Sign in with Google',
                   imagePath: 'assets/images/google.png',
                   onPressed: () {
-               //hey
+                    //hey
                   },
                 ),
                 const SizedBox(height: 30),
                 SocialLoginButton(
                   text: 'Sign in with Facebook',
                   imagePath: 'assets/images/facebook.png',
-                  onPressed: () {
-                    
-                  },
+                  onPressed: () {},
                 ),
                 const SizedBox(height: 30),
                 SocialLoginButton(
                   text: 'Sign in with Apple',
                   imagePath: 'assets/images/apple.png',
-                  onPressed: () {
-                    
-                  },
+                  onPressed: () {},
                 ),
                 const SizedBox(height: 30),
                 TermsText(),

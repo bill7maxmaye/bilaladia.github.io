@@ -1,6 +1,6 @@
-import 'package:aladia_mobile_app/features/auth/Bloc/app_theme.dart';
-import 'package:aladia_mobile_app/features/auth/Bloc/theme_event.dart';
-import 'package:aladia_mobile_app/features/auth/Bloc/theme_state.dart';
+import 'package:aladia_mobile_app/features/auth/bloc/app_theme.dart';
+import 'package:aladia_mobile_app/features/auth/bloc/theme_event.dart';
+import 'package:aladia_mobile_app/features/auth/bloc/theme_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {

@@ -4,11 +4,13 @@ class CustomInputField extends StatelessWidget {
   final String hintText;
   final IconData icon;
   final TextEditingController controller;
+  final bool obscureText;
 
   const CustomInputField({
     required this.hintText,
     required this.icon,
     required this.controller,
+    this.obscureText = false,
   });
 
   @override
