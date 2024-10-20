@@ -1,4 +1,3 @@
-import 'package:aladia_mobile_app/features/auth/models/user_model.dart';
 import 'package:aladia_mobile_app/features/auth/screens/signUp/signUpScree.dart';
 import 'package:go_router/go_router.dart';
 import 'package:aladia_mobile_app/features/auth/screens/login/loginScreen.dart';
