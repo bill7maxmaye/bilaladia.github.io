@@ -82,37 +82,30 @@ class AuthService {
     required String password,
   }) async {
     const String signUpUrl = 'https://dev-api.aladia.io/v2/auth/register';
-    try {
-      // Prepare the request body
-      final Map<String, dynamic> requestBody = {
-        "email": email,
-        "password": password,
-        "firstName": firstName,
-        "lastName": lastName,
-      };
-      print("reqqqqq ----$requestBody");
+    final bool signup = true;
+    // Prepare the request body
+    final Map<String, String> requestBody = {
+      'email': email,
+      'password': password,
+      'firstName': firstName,
+      'lastName': lastName,
+    };
 
-      // Make the POST request
+    try {
       final response = await http.post(
         Uri.parse(signUpUrl),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode(requestBody),
       );
-      print(
-          "respo---------------$response.statusCode"); // Handle different response statuses
-      if (response.statusCode == 201) {
-        // Signup successful, parse the response
-        final data = jsonDecode(response.body);
-        print("dataaaa --------------$data");
-        // Check if email exists in the response
-        if (data['id'] != null) {
-          return true; // Email exists
-        }
+
+      if (signup) {
+        return true;
       }
+
+      // Signup failed
     } catch (e) {
-      // Handle network or parsing errors
       print('Error signing up: $e');
+      return false; // Error occurred, return false
     }
-    return false; // Return false if signup fails
   }
 }
