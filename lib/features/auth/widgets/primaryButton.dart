@@ -16,7 +16,7 @@ class PrimaryButton extends StatelessWidget {
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(
           side: BorderSide(
-              color: Color.fromARGB(255, 79, 78, 78),
+              color: Color.fromARGB(254, 79, 78, 78),
               width: 1.0), // White border
           padding: EdgeInsets.symmetric(vertical: 12), // Padding for height
           backgroundColor: Colors.transparent, // Transparent background
