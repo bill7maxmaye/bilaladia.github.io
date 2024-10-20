@@ -9,8 +9,7 @@ Widget primaryButtonUseCase(BuildContext context) {
   final buttonText = context.knobs.string(
         label: 'Button Text',
         initialValue: 'Enter', // Default value if the knob is empty
-      ) ??
-      'Primary Button'; // Fallback to prevent null
+      ); // Fallback to prevent null
 
   return Center(
     child: SizedBox(

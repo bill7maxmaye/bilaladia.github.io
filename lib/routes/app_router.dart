@@ -3,7 +3,6 @@ import 'package:aladia_mobile_app/features/auth/screens/signUp/signUpScree.dart'
 import 'package:go_router/go_router.dart';
 import 'package:aladia_mobile_app/features/auth/screens/login/loginScreen.dart';
 import 'package:aladia_mobile_app/features/home/screens/home_screen.dart';
-import 'package:aladia_mobile_app/features/splash/screens/splashScreen.dart';
 import 'package:aladia_mobile_app/routes/app_routes.dart';
 
 class AppRouter {
